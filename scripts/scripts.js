@@ -12,26 +12,32 @@ let i = 0;
 
 for (let item of refList) {
     console.log(item.innerHTML)
-    const refText = item.innerHTML
-    
-    const anchor = document.createElement("a")
-    const anchorContent = document.createElement("sup")
-    anchorContent.innerText = ++i
+    const fnText = item.innerHTML
+    const refListId = i
+    const curId = ++i
+        
+    const refLink = document.createElement("a")
+    const refCont = document.createElement("sup")
+    refLink.id = `ref${curId}`
+    refLink.setAttribute(`href`,`fn${curId}`)
+    refCont.innerText = `[${curId}]`
+    refLink.appendChild(refCont)
 
-    item = anchor.appendChild(anchorContent)
+    refList[refListId].innerText = ` `
+    refList[refListId].appendChild(refLink)
 
-    const refPara = document.createElement("p")
-    const refParaLink = document.createElement("a")
-    const refParaText = document.createElement("p")
+    const fnPara = document.createElement("p")
+    const fnParaLink = document.createElement("a")
+    const fnParaText = document.createElement("p")
 
-    refParaLink.id = `fn${i}`
-    refParaLink.setAttribute(`href`,`ref${i}`)
+    fnParaLink.id = `fn${curId}`
+    fnParaLink.setAttribute(`href`,`ref${curId}`)
 
-    refParaLink.textContent = i
-    refParaText.textContent = refText
+    fnParaLink.textContent = curId
+    fnParaText.textContent = fnText
 
-    refPara.appendChild(refParaLink)
-    refPara.appendChild(refParaText)
+    fnPara.appendChild(fnParaLink)
+    fnPara.appendChild(fnParaText)
 
-    refDiv.appendChild(refPara)
+    refDiv.appendChild(fnPara)
 };
