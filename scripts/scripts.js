@@ -1,30 +1,26 @@
-let separatorElement = document.createElement("hr");
+let insertionSite = document.getElementById("content")
+const separatorElement = document.createElement("hr");
+
 const refDiv = document.createElement("div");
 
 refDiv.id = "references";
 
-document.body.appendChild(separatorElement);
-document.body.append(refDiv);
+insertionSite.append(separatorElement);
+insertionSite.append(refDiv);
 
 let refList = document.getElementsByTagName("ref");
 
-let i = 0;
+for (curId=1; refList.length != 0; ++curId) {
+    console.log(`the inner HTML of refList ${refList[0].innerHTML}`)
+    const fnText = refList[0].innerHTML
+    
 
-for (let item of refList) {
-    console.log(item.innerHTML)
-    const fnText = item.innerHTML
-    const refListId = i
-    const curId = ++i
-        
     const refLink = document.createElement("a")
     const refCont = document.createElement("sup")
     refLink.id = `ref${curId}`
     refLink.setAttribute("href",`#fn${curId}`)
     refCont.innerText = `[${curId}]`
     refLink.appendChild(refCont)
-
-    refList[refListId].innerText = ""
-    refList[refListId].appendChild(refLink)
 
     const fnPara = document.createElement("p")
     const fnParaLink = document.createElement("a")
@@ -35,9 +31,11 @@ for (let item of refList) {
 
     fnParaLink.textContent = curId
     fnParaText.textContent = fnText
-
+  
     fnPara.appendChild(fnParaLink)
     fnPara.appendChild(fnParaText)
 
     refDiv.appendChild(fnPara)
+
+    refList[0].outerHTML = refLink.outerHTML;
 };
