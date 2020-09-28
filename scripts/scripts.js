@@ -8,15 +8,10 @@ document.body.append(refDiv);
 
 let refList = document.getElementsByTagName("ref");
 
-let i = 0;
-
-for (i=0; refList.length != 0; i) {
+for (curId=1; refList.length != 0; ++curId) {
     console.log(`the inner HTML of refList ${refList[0].innerHTML}`)
     const fnText = refList[0].innerHTML
     
-    let refListId = i
-    let curId = ++i
-        
     const refLink = document.createElement("a")
     const refCont = document.createElement("sup")
     refLink.id = `ref${curId}`
