@@ -1,10 +1,11 @@
-let separatorElement = document.createElement("hr");
+let insertionSite = document.getElementById("content")
+const separatorElement = document.createElement("hr");
 const refDiv = document.createElement("div");
 
 refDiv.id = "references";
 
-document.body.appendChild(separatorElement);
-document.body.append(refDiv);
+insertionSite.append(separatorElement);
+insertionSite.append(refDiv);
 
 let refList = document.getElementsByTagName("ref");
 
