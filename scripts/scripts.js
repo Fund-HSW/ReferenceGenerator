@@ -10,11 +10,12 @@ let refList = document.getElementsByTagName("ref");
 
 let i = 0;
 
-for (let item of refList) {
-    console.log(item.innerHTML)
-    const fnText = item.innerHTML
-    const refListId = i
-    const curId = ++i
+for (i=0; refList.length != 0; i) {
+    console.log(`the inner HTML of refList ${refList[0].innerHTML}`)
+    const fnText = refList[0].innerHTML
+    
+    let refListId = i
+    let curId = ++i
         
     const refLink = document.createElement("a")
     const refCont = document.createElement("sup")
@@ -22,8 +23,6 @@ for (let item of refList) {
     refLink.setAttribute("href",`#fn${curId}`)
     refCont.innerText = `[${curId}]`
     refLink.appendChild(refCont)
-
-    refList[refListId] = refLink;
 
     const fnPara = document.createElement("p")
     const fnParaLink = document.createElement("a")
@@ -34,9 +33,11 @@ for (let item of refList) {
 
     fnParaLink.textContent = curId
     fnParaText.textContent = fnText
-
+    
     fnPara.appendChild(fnParaLink)
     fnPara.appendChild(fnParaText)
 
     refDiv.appendChild(fnPara)
+
+    refList[0].outerHTML = refLink.outerHTML;
 };
