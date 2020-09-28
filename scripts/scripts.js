@@ -23,8 +23,7 @@ for (let item of refList) {
     refCont.innerText = `[${curId}]`
     refLink.appendChild(refCont)
 
-    refList[refListId].innerText = ""
-    refList[refListId].appendChild(refLink)
+    refList[refListId] = refLink;
 
     const fnPara = document.createElement("p")
     const fnParaLink = document.createElement("a")
