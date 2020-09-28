@@ -19,11 +19,11 @@ for (let item of refList) {
     const refLink = document.createElement("a")
     const refCont = document.createElement("sup")
     refLink.id = `ref${curId}`
-    refLink.setAttribute(`href`,`fn${curId}`)
+    refLink.setAttribute("href",`#fn${curId}`)
     refCont.innerText = `[${curId}]`
     refLink.appendChild(refCont)
 
-    refList[refListId].innerText = ` `
+    refList[refListId].innerText = ""
     refList[refListId].appendChild(refLink)
 
     const fnPara = document.createElement("p")
@@ -31,7 +31,7 @@ for (let item of refList) {
     const fnParaText = document.createElement("p")
 
     fnParaLink.id = `fn${curId}`
-    fnParaLink.setAttribute(`href`,`ref${curId}`)
+    fnParaLink.setAttribute("href",`#ref${curId}`)
 
     fnParaLink.textContent = curId
     fnParaText.textContent = fnText
