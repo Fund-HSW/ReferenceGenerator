@@ -1,6 +1,5 @@
 let insertionSite = document.getElementById("content")
 const separatorElement = document.createElement("hr");
-
 const refDiv = document.createElement("div");
 
 refDiv.id = "references";
@@ -14,7 +13,6 @@ for (curId=1; refList.length != 0; ++curId) {
     console.log(`the inner HTML of refList ${refList[0].innerHTML}`)
     const fnText = refList[0].innerHTML
     
-
     const refLink = document.createElement("a")
     const refCont = document.createElement("sup")
     refLink.id = `ref${curId}`
@@ -31,7 +29,7 @@ for (curId=1; refList.length != 0; ++curId) {
 
     fnParaLink.textContent = curId
     fnParaText.textContent = fnText
-  
+    
     fnPara.appendChild(fnParaLink)
     fnPara.appendChild(fnParaText)
 
